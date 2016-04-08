@@ -14,10 +14,13 @@ public class ProgramaCliente {
 		String url = "rmi://localhost:1099/ConsultarLogradouro";
 		ICep servico = (ICep) Naming.lookup(url);
 		System.out.println("Digite o CEP que deseja consultar : ");
-		Object resposta = servico.consulta(input.nextLine());
+		String[] resposta = servico.consulta(input.nextLine());
 		
 		System.out.println(" ");
-		System.out.println("Resultado : "+resposta.toString());
+		System.out.println("Cep : "+resposta[0]);
+		System.out.println("Estado : "+resposta[1]);
+		System.out.println("Rua : "+resposta[2]);
+		System.out.println("Tipo de Logradouro : "+resposta[3]);
 		
 	}
 
